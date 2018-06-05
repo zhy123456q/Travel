@@ -7,10 +7,19 @@ const path = require('path')
 module.exports = {
   dev: {
 
-    // Paths
+    // Paths   webpack-dev-server提供的地址转发功能,改变此文件需要重启服务器
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+        '/api': {
+            //将请求转发到本地8080端口上
+            target: 'http://localhost:8080',
+            //给路径做个替换，请求的地址以api开头的都替换成static/mock
+            pathRewrite: {
+                '^/api': '/static/mock'
+            }
+        }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

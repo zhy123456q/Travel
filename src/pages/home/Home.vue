@@ -23,11 +23,6 @@ export default {
     HomeRecommend,
     HomeWeekend
   },
-  data () {
-    return {
-      city: ''
-    }
-  },
   methods: {
     getHomeInfo () {
       axios.get('/api/index.json')

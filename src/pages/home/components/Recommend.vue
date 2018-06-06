@@ -4,13 +4,13 @@
       热销推荐
     </div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <div>
           <img :src="item.imgUrl" :alt="item.title" class="item-img">
         </div>
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
-          <p class="item-desc">{{item.description}}</p>
+          <p class="item-desc">{{item.desc}}</p>
           <button class="detail-btn">查看详情</button>
         </div>
       </li>
@@ -20,30 +20,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1805/ca/ca11017f163d32cea3.water.jpg_200x200_3030aa94.jpg',
-        title: '南京万达主题乐园',
-        description: '江苏省南京市栖霞区仙林大道与守敬路交汇处南京万达茂1楼2楼'
-      }, {
-        id: '002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1508/f7/f7c3be996152011c.img.jpg_200x200_0b707f70.jpg',
-        title: '南京总统府',
-        description: '江苏省南京市玄武区长江路292号'
-      }, {
-        id: '003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1601/93/93fc9519bd1959b890.img.jpg_200x200_61a38fdf.jpg',
-        title: '牛首山文化旅游区',
-        description: '江苏省南京市江宁区宁丹大道18号'
-      }, {
-        id: '004',
-        imgUrl: 'http://img1.qunarzz.com/sight/201312/03/38da27f8a2ad319ec8d65eac.jpg_200x200_72a1d26d.jpg',
-        title: '红山森林动物园',
-        description: '江苏省南京市玄武区和燕路168号'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

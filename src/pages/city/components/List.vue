@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">{{this.$store.state.city}}</div>
+            <div class="button">{{currentCity}}</div>
           </div>
         </div>
       </div>
@@ -44,8 +44,15 @@
 </template>
 <script>
 import Bscroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'CityList',
+  computed: {
+    // 将vuex city映射到currentCity变量中
+    ...mapState({
+      currentCity: 'city'
+    })
+  },
   props: {
     cities: Object,
     hot: Array,
@@ -53,10 +60,13 @@ export default {
   },
   methods: {
     handleCityClick (city) {
-      this.$store.dispatch('changeCity', city)
+      // this.$store.dispatch('changeCity', city)
+      this.changeCity(city)
       this.$router.push('/')
       // this.$store.commit('changeCity', city)
-    }
+    },
+    // 将Mutations里面的changeCity方法映射到当前组件changeCity的方法里
+    ...mapMutations(['changeCity'])
   },
   watch: {
     letter () {

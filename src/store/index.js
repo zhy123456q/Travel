@@ -9,11 +9,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state,
   actions,
-  mutations,
+  mutations
   // getters类似组件中的计算属性
-  getters: {
-    doubleCity (state) {
-      return state.city + ' ' + state.city
-    }
-  }
+  // getters: {
+  //   doubleCity (state) {
+  //     return state.city + ' ' + state.city
+  //   }
+  // }
 })
